@@ -1,0 +1,43 @@
+<section id="details" class="flex flex-wrap ">
+    <div class="title  p-[30px]">
+        <p class="mb-6 font-semibold text-[#316565] ps-10 relative">Products Details</p>
+    </div>
+    <div class="parent flex flex-col md:flex sm:flex-col md:flex-row p-[20px]">
+        <div class="imges md:w-[65%] sm:w-full flex flex-nowrap "  >
+            <div class="imgs flex flex-col w-[30%] max-h-[100%]">
+                @for (img of productDetails.images.slice(0,4); track $index) {
+                    <img class="w-full h-[12%] p-1  object-contain" src="{{img}}" alt="">
+                }
+
+            </div>
+            <div class="cover w-[70%] ">
+                <img class="w-[78%]" src="{{productDetails.imageCover}}" alt="">
+            </div>
+        </div>
+
+
+        <div class="data md:w-[35%] sm:w-full ">
+            <h3 class="font-semibold text-2xl mb-2 text-[#316565] ">{{productDetails.title}}</h3>
+            <p class="inline mb-2"><span><i class="fa-solid fa-star me-1" style="color: #FFD43B;"></i></span>{{productDetails.ratingsAverage}}</p>
+            <span class="mb-2 ms-3 font-normal text-[14px] text-gray-400 pe-4 border-e-[1px] border-gray-400">({{productDetails.ratingsQuantity}} Reviews)</span>
+            <span class="text-[#00FF66] ms-3 font-normal text-[14px]">In Stock</span>
+            <h4 class="text-2xl mt-2 font-normal">{{productDetails.price}}$</h4>
+            <p class="text-[14px] mb-4 pb-4 border-b-[1px] border-gray-400 mt-2 font-normal">{{productDetails.description.split(' ',15).join(' ')}}.</p>
+            <div class="buy">
+                <div class="flex ms-3">
+                    <div class="py-2 rounded border-[1px] border-gray-400 overflow-hidden  text-[20px] w-[52%]">
+                        <span (click)="decrement()" class="text-3xl px-5 overflow-hidden rounded cursor-pointer py-2  ">-</span>
+                        <span class="px-8 py-4 font-medium border-x-[1px] border-gray-400 boreder-gray-400  text-[20px]">{{productCount}}</span>
+                        <span (click)="increment()" class="text-3xl px-5 overflow-hidden rounded cursor-pointer py-2  ">+</span>
+                    </div>
+                    <span class="ms-9 py-3 px-4 rounded border-[1px] border-gray-400 text-2xl hover:bg-[#316565] hover:text-white transition-all"><i class="fa-regular fa-heart"></i></span>
+                </div>
+                <div class="mt-5 w-full text-center ">
+                    <button class="px-3 w-full py-3 border-[2px] rounded-lg bg-black border-black hover:bg-[#316565] hover:border-[#316565] transition-all text-white">Add To Cart</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>

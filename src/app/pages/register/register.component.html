@@ -1,0 +1,114 @@
+<section id="register" class="p-[50px]">
+    <div class="parent w-full sm:flex sm:flex-row flex-col flex-wrap p-5 sm:p-0">
+
+
+        <div class="register-forms w-full  p-5  sm:p-0  text-center ">
+            <div class="title">
+                <h3 class="font-[500] text-4xl mb-2 text-[#316565] ">Create an account</h3>
+                <p>Enter your details below</p>
+            </div>
+
+            <form [formGroup]="register" (ngSubmit)="submitForm()"  class="form mt-5 w-full ">
+
+                <input formControlName="name"  class="transition-all rounded-lg placeholder:text-[#316565] p-3 border-[1px] border-black w-full bg-transparent  mb-4 font-semibold" type="text" placeholder="Name">
+                @if (register.get('name')?.errors && register.get('name')?.touched){
+                    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <svg class="shrink-0 inline w-4 h-4 me-3 mt-[5px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="sr-only">Danger</span>
+                        <div>
+                            <ul class="mt-1.5 list-disc list-inside">
+                              @if (register.get('name')?.errors?.['required']) {<li>Name is required</li>}
+                              @if (register.get('name')?.errors?.['minlength']) {<li>Name minlength must be 3</li>}
+                              @if (register.get('name')?.errors?.['maxlength']) {<li>Name maxlength must be 20</li>}
+                          </ul>
+                        </div>
+                      </div>
+                }
+                <input formControlName="email" class="transition-all rounded-lg placeholder:text-[#316565] p-3 border-[1px] border-black w-full bg-transparent  mb-4 font-semibold" type="email" placeholder="E-mail">
+                @if (register.get('email')?.errors && register.get('email')?.touched){
+                    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <svg class="shrink-0 inline w-4 h-4 me-3 mt-[5px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="sr-only">Danger</span>
+                        <div>
+                            <ul class="mt-1.5 list-disc list-inside">
+                              @if (register.get('email')?.errors?.['required']) {<li>E-mail is required</li>}
+                              @if (register.get('email')?.errors?.['email']) {<li >E-mail must be valid</li>}
+                          </ul>
+                        </div>
+                      </div>
+                }
+                <input formControlName="password" class="transition-all rounded-lg placeholder:text-[#316565] p-3 border-[1px] border-black w-full bg-transparent  mb-4 font-semibold" type="password" placeholder="Password">
+                @if (register.get('password')?.errors && register.get('password')?.touched){
+                    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <svg class="shrink-0 inline w-4 h-4 me-3 mt-[5px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="sr-only">Danger</span>
+                        <div>
+                            <ul class="mt-1.5 list-disc list-inside">
+                              @if (register.get('password')?.errors?.['required']) {<li>Password is required</li>}
+                              @if (register.get('password')?.errors?.['pattern']) {<li >Password must be valid</li>}
+                          </ul>
+                        </div>
+                      </div>
+                }
+                <input formControlName="rePassword" class="transition-all rounded-lg placeholder:text-[#316565] p-3 border-[1px] border-black w-full bg-transparent  mb-4 font-semibold" type="password" placeholder="Repassword">
+                @if (register.getError('notSame') && register.get('rePassword')?.touched){
+                    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <svg class="shrink-0 inline w-4 h-4 me-3 mt-[5px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="sr-only">Danger</span>
+                        <div>
+                            <ul class="mt-1.5 list-disc list-inside">
+                                <li>Password not same</li>
+                          </ul>
+                        </div>
+                      </div>
+                }
+                <input formControlName="phone" class="transition-all rounded-lg placeholder:text-[#316565] p-3 border-[1px] border-black w-full bg-transparent  mb-4 font-semibold" type="text" placeholder="Phone Number">
+                @if (register.get('phone')?.errors && register.get('phone')?.touched){
+                    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <svg class="shrink-0 inline w-4 h-4 me-3 mt-[5px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="sr-only">Danger</span>
+                        <div>
+                            <ul class="mt-1.5 list-disc list-inside">
+                              @if (register.get('phone')?.errors?.['required']) {<li>Phone is required</li>}
+                              @if (register.get('phone')?.errors?.['pattern']) {<li >Phone must be valid</li>}
+                          </ul>
+                        </div>
+                      </div>
+                }
+                <p class="text-red-800 text-center mb-3">{{errMessage}}</p>
+                <button
+                   type="submit"  class="text-center px-3 w-full py-2 border-[2px] rounded-lg bg-black  hover:bg-[#316565] border-black hover:border-[#316565] transition-all text-white">
+                    Create Account 
+                    @if (isLoading) {
+                        <span class="ms-2"><i class="fa-solid fa-spinner fa-spin"></i></span>
+                    }
+                </button>
+                    
+                        
+                    
+            </form>
+
+
+
+            <p routerLink="/login" class="text-center mt-8">Already have account ? <span class="cursor-pointer font-medium underline text-[#316565] ">Login</span></p>
+
+        </div>
+
+
+        
+
+
+
+
+    </div>
+</section>

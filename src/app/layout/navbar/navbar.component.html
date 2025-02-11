@@ -1,0 +1,60 @@
+
+<nav class="  ">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a routerLink="/home"  class="flex items-center space-x-3 rtl:space-x-reverse ">
+          <span role="button" class="self-center text-2xl font-semibold whitespace-nowrap " id="logo">Greenmind</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 00 ay-700 gray-600" aria-controls="navbar-default" aria-expanded="false" title="Open main menu">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden flex-grow w-full md:flex md:w-auto" id="navbar-default">
+        @if (isLogin()) {
+            <ul class=" mx-auto   capitalize  flex  flex-col p-4 md:p-0 mt-4 border  rounded-lg  md:flex-row md:space-x-6 rtl:space-x-reverse md:mt-0 md:border-0   ">
+
+                <li>
+                  <a role="button"  routerLinkActive="text-[#316565]" routerLink="/home"  class="block py-2 px-3 transition-all  rounded-sm   md:border-0 hover:text-[#316565] md:p-0 ">Home</a>
+                </li>
+                <li>
+                  <a role="button" routerLinkActive="text-[#316565]" routerLink="/products"  class=" block py-2 px-3 transition-all  rounded-sm   md:border-0 hover:text-[#316565] md:p-0 ">product</a>
+                </li>
+                <li>
+      
+                <li>
+                  <a role="button" routerLinkActive="text-[#316565]" routerLink="/category"  class="block py-2 px-3 transition-all  rounded-sm   md:border-0 hover:text-[#316565] md:p-0 ">categories</a>
+                </li>
+                <li>
+                  <a  role="button" routerLinkActive="text-[#316565]" routerLink="/brands" class="block py-2 px-3 transition-all  rounded-sm   md:border-0 hover:text-[#316565] md:p-0 ">brand</a> 
+                </li>
+      
+              </ul>
+        }
+        <ul class=" ms-auto  capitalize  flex flex-col p-4 md:p-0 mt-4 border  rounded-lg  md:flex-row md:space-x-6 rtl:space-x-reverse md:mt-0 md:border-0    ">
+
+
+            @if (!isLogin()) {
+                <li>
+                    <a role="button" routerLinkActive="text-[#316565]" routerLink="/login"  class="block py-2 px-3  rounded-sm   md:border-0 hover:text-[#316565] md:p-0 ">Login</a>
+                </li>
+                <li>
+                    <a role="button" routerLinkActive="text-[#316565]" routerLink="/register"  class="block py-2 px-3  rounded-sm   md:border-0 hover:text-[#316565] md:p-0 ">Register</a>
+                </li>
+            }
+            @else {
+              <li>
+                <a role="button" routerLinkActive="text-[#316565]" routerLink="/cart"  title="Cart" aria-label="Cart" class="block py-2 px-3  rounded-sm   md:border-0 hover:text-[#316565] md:p-0 "><i class="fa-solid fa-cart-shopping"></i></a>
+              </li>
+                <li>
+                    <a role="button" routerLinkActive="text-[#316565]" (click)="authService.logout()" class="block py-2 px-3  rounded-sm   md:border-0 hover:text-[#316565] md:p-0 ">Logout</a>
+                </li>
+            }
+
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  

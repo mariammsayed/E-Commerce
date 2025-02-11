@@ -1,0 +1,41 @@
+<section id="login" class="p-[50px] ">
+    <div class="parent w-full sm:flex sm:flex-row flex-col flex-wrap p-5 sm:p-0">
+
+
+
+        <div class="login-forms w-full  p-5  sm:p-0  text-center ">
+            <div class="title">
+                <h3 class="font-[500] text-4xl mb-2 text-[#316565] ">Log in to your account</h3>
+                <p>Enter your details below</p>
+            </div>
+
+            <form class="form mt-5 w-full " [formGroup]="loginForm" (ngSubmit)="submitForm()">
+                <input formControlName="email" class="transition-all rounded-lg placeholder:text-[#316565] p-3 border-[1px] border-black w-full bg-transparent  mb-4 font-semibold" type="email"
+                    placeholder="E-mail">
+                <input formControlName="password" class="transition-all rounded-lg placeholder:text-[#316565] p-3 border-[1px] border-black w-full bg-transparent  mb-4 font-semibold" type="password"
+                    placeholder="Password">
+
+                    @if (err) {
+                        <p class="text-red-800 text-center mb-3">Email or password is incorrect</p>
+                    }
+
+                        <button
+                        type="submit"
+                            class="text-center px-3 w-full py-2 border-[2px] rounded-lg bg-black  hover:bg-[#316565] border-black hover:border-[#316565] transition-all text-white">
+                            Login @if (isLoading) {
+                                <span class="ms-2"><i class="fa-solid fa-spinner fa-spin"></i></span>
+                            }</button> <p class="text-[#316565] cursor-pointer ms-8 mt-3 " routerLink="/forget-password">Forget passowrd ?</p>
+            </form>
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+</section>

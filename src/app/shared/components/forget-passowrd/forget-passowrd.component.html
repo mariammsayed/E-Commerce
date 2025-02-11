@@ -1,0 +1,112 @@
+<section class="md:px-[90px] md:pb-[90px] pt-[50px] ">
+    <div class="w-full  p-5  sm:p-0  text-center">
+        <p class="font-[500] text-4xl mb-2 text-[#316565] ">Reset Password</p>
+    </div>
+
+    @if(email){
+        <form [formGroup]="verifyEmail" (ngSubmit)="submitEmailForm()"  class="form mt-8 w-full ">
+            <input formControlName="email" class="transition-all rounded-lg placeholder:text-[#316565] p-3 border-[1px] border-black w-full bg-transparent  mb-4 font-semibold" type="email"
+            placeholder="E-mail">
+            @if (verifyEmail.get('email')?.errors && verifyEmail.get('email')?.touched){
+                <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <svg class="shrink-0  inline w-4 h-4 me-3 mt-[6px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Danger</span>
+                    <div>
+                        <ul class="mt-1.5 list-disc list-inside">
+                          @if (verifyEmail.get('email')?.errors?.['required']) {<li>E-mail is required</li>}
+                          @if (verifyEmail.get('email')?.errors?.['email']) {<li >E-mail must be valid</li>}
+                      </ul>
+                    </div>
+                  </div>
+            }
+            <button 
+                type="submit"
+                class="text-center px-3 w-full py-2 border-[2px] rounded-lg bg-black  hover:bg-[#316565] border-black hover:border-[#316565] transition-all text-white">
+                Submit E-mail 
+                @if (loading) {
+                  <span class="ms-2"><i class="fa-solid fa-spinner fa-spin"></i></span>
+                }
+            </button> 
+        </form>
+    }
+    @if(code){
+        <form [formGroup]="verifyCode" (ngSubmit)="submitCodeForm()"  class="form mt-8 w-full ">
+            <input formControlName="resetCode" class="transition-all rounded-lg placeholder:text-[#316565] p-3 border-[1px] border-black w-full bg-transparent  mb-4 font-semibold" type="text"
+            placeholder="Code">
+            @if (verifyEmail.get('resetCode')?.errors && verifyEmail.get('resetCode')?.touched){
+                <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <svg class="shrink-0  inline w-4 h-4 me-3 mt-[6px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Danger</span>
+                    <div>
+                        <ul class="mt-1.5 list-disc list-inside">
+                          @if (verifyEmail.get('resetCode')?.errors?.['required']) {<li>Code is required</li>}
+                      </ul>
+                    </div>
+                  </div>
+            }
+            @if (isError) {
+              <p class="text-red-800 p-3">Code is invalid</p>
+            }
+            <button 
+                type="submit"
+                class="text-center px-3 w-full py-2 border-[2px] rounded-lg bg-black  hover:bg-[#316565] border-black hover:border-[#316565] transition-all text-white">
+                Submit Code
+                @if (loading) {
+                  <span class="ms-2"><i class="fa-solid fa-spinner fa-spin"></i></span>
+                }
+            </button> 
+        </form>
+    }
+    @if(reset){
+        <form [formGroup]="verifyPassword" (ngSubmit)="resetPassword()"  class="form mt-8 w-full ">
+            <input formControlName="email" readonly  class="transition-all rounded-lg placeholder:text-[#316565] p-3 border-[1px] border-black w-full bg-transparent  mb-4 font-semibold" type="email"
+            placeholder="E-mail">
+            @if (verifyEmail.get('email')?.errors && verifyEmail.get('email')?.touched){
+                <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <svg class="shrink-0  inline w-4 h-4 me-3 mt-[6px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Danger</span>
+                    <div>
+                        <ul class="mt-1.5 list-disc list-inside">
+                          @if (verifyEmail.get('email')?.errors?.['required']) {<li>E-mail is required</li>}
+                          @if (verifyEmail.get('email')?.errors?.['email']) {<li >E-mail must be valid</li>}
+                      </ul>
+                    </div>
+                  </div>
+            }
+            <input formControlName="newPassword" class="transition-all rounded-lg placeholder:text-[#316565] p-3 border-[1px] border-black w-full bg-transparent  mb-4 font-semibold" type="password"
+            placeholder="Passowrd">
+            @if (verifyEmail.get('newPassword')?.errors && verifyEmail.get('newPassword')?.touched){
+                <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <svg class="shrink-0  inline w-4 h-4 me-3 mt-[6px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Danger</span>
+                    <div>
+                        <ul class="mt-1.5 list-disc list-inside">
+                          @if (verifyEmail.get('newPassword')?.errors?.['required']) {<li>Passowrd is required</li>}
+                          @if (verifyEmail.get('newPassword')?.errors?.['newPassword']) {<li >Passowrd must be valid</li>}
+                      </ul>
+                    </div>
+                  </div>
+            }
+            <button 
+                type="submit"
+                class="text-center px-3 w-full py-2 border-[2px] rounded-lg bg-black  hover:bg-[#316565] border-black hover:border-[#316565] transition-all text-white">
+                Reset Passowrd
+                @if (loading) {
+                  <span class="ms-2"><i class="fa-solid fa-spinner fa-spin"></i></span>
+                }
+            </button> 
+        </form>
+        @if (isChange) {<p class="p-3 text-green-600 font-medium">Password changed successfully</p>}
+    }
+
+
+
+</section>

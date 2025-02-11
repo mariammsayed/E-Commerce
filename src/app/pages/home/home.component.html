@@ -1,0 +1,123 @@
+
+<section id="category" class="py-[90px]">
+    <div class="title mb-12">
+        <p class="mb-6 font-semibold text-black relative text-center ">Popular Categories </p>
+        <h2 class="font-semibold text-4xl text-center text-[#316565]">Explore Our Categories </h2>
+    </div>
+    <div>
+        <owl-carousel-o [options]="customOptions">
+            
+            @for (category of categories; track category._id) {
+
+                <ng-template carouselSlide >
+
+                    <div class="bg-black">
+                        <img [src]="category.image" class="w-full h-[300px] object-cover" alt="">
+                        <h3 class="text-center text-xl p-2 text-white">{{category.name}}</h3>
+                    </div>
+                     
+                  </ng-template>
+            }
+
+          </owl-carousel-o>
+    </div>
+</section>
+
+
+
+<section class="py-[90px]" id="products">
+    <div class="title mb-12">
+        <p class="mb-6 font-semibold text-black relative text-center ">Our Products </p>
+        <h2 class="font-semibold text-4xl text-center text-[#316565]">Explore Our Products</h2>
+    </div>
+    <div class="products grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-[30px] ">
+        @for (product of products.slice(0,8); track product.id) {
+        <div class="card rounded-lg shadow-sm overflow-hidden cursor-pointer p-4 border-[1px] border-black ">
+            <div class="card-img rounded-lg  relative">
+                <div class="icons absolute right-[1px] top-2 flex flex-col">
+                    <span class="py-1 px-2 text-white rounded-full hover:bg-[#316565] transition-all bg-black"><i
+                            class="fa-regular fa-heart"></i></span><br>
+                    <span class="py-1 px-2 text-white rounded-full hover:bg-[#316565] transition-all bg-black"><i
+                            class="fa-regular fa-eye"></i></span>
+                </div>
+                <img [routerLink]="['/details',product._id]" class="w-full  mx-auto" [src]="product.images[0]" alt="">
+            </div>
+            <div [routerLink]="['/details',product._id]" class="card-body mt-3">
+                <h2 class="font-medium">{{product.title.split(' ',2).join('')}}</h2>
+                <div class="card-desc w-full flex justify-between">
+                    <div>
+                        <span class="text-black font-medium">{{product.price}}$ </span>
+                        <span class="ms-2 font-semibold size-[14px quantity]">({{product.quantity}})</span>
+                    </div>
+                    <span><i class="fa-solid fa-star" style="color: #FFD43B;"></i>{{products[0].ratingsAverage}}</span>
+                </div>
+
+            </div>
+            <button class=" w-full text-center mt-2 text-white bg-black hover:bg-[#316565] transition-all rounded-md py-2"><i class="fa-solid fa-cart-shopping me-2"></i>Add to Cart </button>
+
+        </div>
+        
+        }
+    </div>
+    <div class="catecory-btn mt-8 text-center">
+        <button
+            class="px-3 py-2 border-[2px] rounded-lg bg-black  hover:bg-[#316565] border-black hover:border-[#316565]  transition-all text-white">View
+            All Products</button>
+    </div>
+</section>
+
+<section id="banner" class="py-[50px] hidden sm:hidden lg:block">
+
+    <div class="w-full  md:h-[400px] h-[100px] rounded-md bg-black text-white flex justify-between">
+        <div class="p-20">
+            <h2 class="text-4xl font-extrabold">Buy the product <br> you need</h2>
+
+            <div class="font-medium flex mt-10 text-xl">
+                <div class="pe-10">
+                    <span>200+</span><br>
+                    <span>Products</span>
+                </div>
+                <div class="ps-10 border-s-[1px] border-white">
+                    <span>20K+</span><br>
+                    <span>Customer</span>
+                </div>
+            </div>
+            <input type="search" placeholder="What are you looking for?" class="w-[120%] bg-white rounded-lg p-3  mt-6 border-2 border-white">
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section id="about" class="py-[90px]">
+    <div class="title mb-16">
+        <p class="mb-6 font-semibold text-black relative text-center ">Order now and appreciate the beauty of nature </p>
+        <h2 class="font-semibold text-4xl text-center text-[#316565]">About US</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 p-7">
+        
+        <div class="col p-3 text-center ">
+            <span class="p-4 bg-[#316565] text-white  text-xl rounded-full"><i class="fa-solid fa-shirt"></i></span>
+            <h5 class="mt-7 mb-2 font-bold text-[#316565]">Large Assortment</h5>
+            <p class="font-medium">we offer many different types of products with fewer variations in each category.</p>
+        </div>
+        <div class="col p-3 text-center ">
+            <span class="py-4 px-5 bg-[#316565] text-white  text-xl rounded-full"><i class="fa-solid fa-box"></i></span>
+            <h5 class="mt-7 mb-2 font-bold text-[#316565]">Fast & Free Shipping</h5>
+            <p class="font-medium">4-day or less delivery time, free shipping and an expedited delivery option.</p>
+        </div>
+        <div class="col p-3 text-center ">
+            <span class="py-4 px-5 bg-[#316565] text-white  text-xl rounded-full"><i class="fa-solid fa-phone"></i></span>
+            <h5 class="mt-7 mb-2 font-bold text-[#316565]">24/7 Support</h5>
+            <p class="font-medium">answers to any business related inquiry 24/7 and in real-time.</p>
+        </div>
+
+
+
+
+    </div>
+
+</section>
