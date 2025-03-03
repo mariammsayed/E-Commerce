@@ -1,1 +1,47 @@
-<p>products works!</p>
+<section class="py-[90px] border-b-[1px] border-gray-300 " id="products">
+    <div class="title mb-12 text-center">
+        <p class="mb-6 font-semibold text-[#316565] text-4xl relative">Our Products </p>
+        
+    </div>
+    <div class="w-full text-center mb-8">
+        <input [(ngModel)]="search" placeholder="Search..." class="px-3 py-2 bg-white placeholder:text-gray-400 border-[1px] border-gray-400 w-1/2 rounded-m"  type="search" >
+    </div>
+    <div class="products grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-[30px] ">
+        
+        @for (product of products|search:search; track product.id) {
+        <div class="card rounded-lg shadow-sm overflow-hidden cursor-pointer p-4 border-[1px] border-black ">
+            <div class="card-img rounded-lg  relative">
+                <div class="icons absolute right-[1px] top-2 flex flex-col">
+                    @if (!wishListData.includes(product._id)) {
+                        <span class="py-1 px-2 text-white rounded-full hover:bg-[#316565] transition-all bg-black"><i
+                            (click)="addProductToWishList(product.id)"    class="fa-regular fa-heart"></i></span>
+                    }
+                    @if (wishListData.includes(product._id)) {
+                        <span class="py-1 px-2 text-white rounded-full hover:bg-[#316565] transition-all bg-black"><i
+                            (click)="addProductToWishList(product.id)"    class="fa-solid fa-heart"></i></span>
+                    }
+                        <br>
+                    <span class="py-1 px-2 text-white rounded-full hover:bg-[#316565] transition-all bg-black"><i
+                        [routerLink]="['/details',product._id]"   class="fa-regular fa-eye"></i></span>
+                </div>
+                <img [routerLink]="['/details',product._id]" class="w-full  mx-auto" [src]="product.images[0]" alt="">
+            </div>
+            <div [routerLink]="['/details',product._id]" class="card-body mt-3">
+                <h2 class="font-medium">{{product.title.split(' ',2).join('')}}</h2>
+                <div class="card-desc w-full flex justify-between">
+                    <div>
+                        <span class="text-black font-medium">{{product.price}}$ </span>
+                        <span class="ms-2 font-semibold size-[14px quantity]">({{product.quantity}})</span>
+                    </div>
+                    <span><i class="fa-solid fa-star" style="color: #FFD43B;"></i>{{products[0].ratingsAverage}}</span>
+                </div>
+
+            </div>
+            <button (click)="addToCart(product.id)" class=" w-full text-center mt-2 text-white bg-black hover:bg-[#316565] transition-all rounded-md py-2"><i class="fa-solid fa-cart-shopping me-2"></i>Add to Cart </button>
+
+        </div>
+        
+        }
+    </div>
+
+</section>

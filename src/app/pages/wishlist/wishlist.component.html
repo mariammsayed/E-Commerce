@@ -1,0 +1,45 @@
+<section class="py-[90px]" id="wishlist">
+    @if (wishListProducts().length > 0) {
+        <div class="title mb-12">
+            <p class="mb-6 font-semibold text-[#316565] text-4xl">Wishlist</p>
+        </div>
+
+        <div class=" w-full p-12 rounded-md shadow-lg  ">
+                @for (item of wishListProducts(); track item._id) {
+    
+                    <div class="flex my-8 items-center">
+                        <div>
+                            <img class="w-[170px] me-8 object-contain" src="{{item.imageCover}}" alt="">
+                        </div>
+            
+            
+                        <div>
+                            <h3>{{item.title}}</h3>
+                            <p class="mb-2"><span><i class="fa-solid fa-star me-1" style="color: #FFD43B;"></i></span>{{item.ratingsAverage}}</p>
+                            <h4 class="text-2xl mt-2 font-normal">{{item.price}}$</h4>
+                            <p class="text-[14px]   mt-2 font-normal">{{item.description.split(' ',15).join(' ')}}.</p>
+                            <div>
+                                <button (click)="removeFromWishList(item._id)" class="px-3 ms-3 mt-3 py-1 border-[2px] rounded-lg bg-black border-black hover:bg-[#316565] hover:border-[#316565] transition-all text-white ">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+    
+    
+    
+    
+    
+    
+    
+                }
+            </div>
+    
+
+    }@else {
+        <div class="title mb-12 text-center">
+            <p class="mb-6 font-semibold text-[#316565]  relative">Wishlist</p>
+            <h2 class="font-semibold text-4xl">Your Wishlist Is Empty</h2>
+        </div>
+
+    }
+    
+</section>

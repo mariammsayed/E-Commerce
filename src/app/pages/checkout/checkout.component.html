@@ -1,1 +1,120 @@
-<p>checkout works!</p>
+<section id="cart" class="md:py-[90px] py-[50px] ">
+
+    <div class="title mb-12">
+        <p class="mb-6 font-semibold text-[#316565] text-4xl">Checkout</p>
+    </div>
+
+
+    <div class=" flex flex-col-reverse md:flex-row gap-[50px] md:gap-[130px] w-full">
+         
+        <form class="form-data  w-full md:w-[50%] " [formGroup]="shippingAddress" (ngSubmit)="placeOrder()">
+            <h3 class="font-medium text-4xl">Billing Details</h3>
+
+            <div class="mt-8 w-full">
+                <label class="text-gray-500 text-[16px] mb-2" for="details">Details</label>
+                <input class="w-full mt-2 bg-gray-100 rounded-sm border-[1px] border-gray-100" type="text" formControlName="details" title="Enter your details" placeholder="">
+                @if (shippingAddress.get('details')?.errors && shippingAddress.get('details')?.touched){
+                    <div class="flex p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50  dark:text-red-400" role="alert">
+                        <svg class="shrink-0 inline w-4 h-4 me-3 mt-[5px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="sr-only">Danger</span>
+                        <div>
+                            <ul class="mt-1.5 list-disc list-inside">
+                              @if (shippingAddress.get('details')?.errors?.['required']) {<li>Details is required</li>}
+                              @if (shippingAddress.get('details')?.errors?.['minlength']) {<li>Details minlength must be 10</li>}
+                          </ul>
+                        </div>
+                      </div>
+                }
+            </div>
+            <div class="mt-8 w-full">
+                <label class="text-gray-500 text-[16px] mb-2" for="phone">Phone</label>
+                <input id="phone" class="w-full mt-2 bg-gray-100 rounded-sm border-[1px] border-gray-100" type="text" formControlName="phone" title="Enter your phone number" placeholder="">
+                @if (shippingAddress.get('phone')?.errors && shippingAddress.get('phone')?.touched){
+                    <div class="flex p-4 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50  dark:text-red-400" role="alert">
+                        <svg class="shrink-0 inline w-4 h-4 me-3 mt-[5px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="sr-only">Danger</span>
+                        <div>
+                            <ul class="mt-1.5 list-disc list-inside">
+                              @if (shippingAddress.get('phone')?.errors?.['required']) {<li>Phone is required</li>}
+                              @if (shippingAddress.get('phone')?.errors?.['pattern']) {<li>Phone must be valid</li>}
+                          </ul>
+                        </div>
+                      </div>
+                }
+            </div>
+            <div class="mt-8 w-full">
+                <label class="text-gray-500 text-[16px] mb-2" for="city">City</label>
+                <input id="phone" class="w-full mt-2 bg-gray-100 rounded-sm border-[1px] border-gray-100" type="text" formControlName="city" title="Enter your phone number" placeholder="">
+                @if (shippingAddress.get('city')?.errors && shippingAddress.get('city')?.touched){
+                    <div class="flex p-4 mb-4 text-sm mt-2 text-red-800 rounded-lg bg-red-50  dark:text-red-400" role="alert">
+                        <svg class="shrink-0 inline w-4 h-4 me-3 mt-[5px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="sr-only">Danger</span>
+                        <div>
+                            <ul class="mt-1.5 list-disc list-inside">
+                              @if (shippingAddress.get('city')?.errors?.['required']) {<li>City is required</li>}
+                          </ul>
+                        </div>
+                      </div>
+                }
+            </div>
+            <div >
+                @if (cartProduct) {
+                    <p class="text-[#316565] mt-8">The cart is empty</p>
+                }
+                <button  type="submit"  class="px-9 py-2 border-[2px] mt-8 rounded-lg bg-black border-black hover:bg-[#316565] hover:border-[#316565]] transition-all text-white">Place Order</button>
+            </div>
+        </form>
+
+
+
+        <div class=" w-full md:w-[50%] ">
+
+            @for (item of cartDetails.products; track item.product._id) {
+                <div class="flex justify-between items-center mb-5">
+                    <div class="flex items-center">
+                        <img [src]="item.product.imageCover" class="w-[50px] object-cover" alt="">
+                        <span class="ms-4">{{item.product.title.split(' ',2).join('')}}</span>
+                    </div>
+                    <span>{{item.price * item.count}} $</span>
+                </div>
+            }
+
+            <div class="pb-4 border-b-[1px] border-gray-400 flex items-center justify-between ">
+                <p>Subtotal :</p>
+                <span>{{cartDetails.totalCartPrice}} $</span>
+            </div>
+
+            <div class="pb-4  flex items-center justify-between mt-5 ">
+                <p>Total :</p>
+                <span>{{cartDetails.totalCartPrice}} $</span>
+            </div>
+
+
+            <div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+</section>

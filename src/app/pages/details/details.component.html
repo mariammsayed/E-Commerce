@@ -30,10 +30,9 @@
                         <span class="px-8 py-4 font-medium border-x-[1px] border-gray-400 boreder-gray-400  text-[20px]">{{productCount}}</span>
                         <span (click)="increment()" class="text-3xl px-5 overflow-hidden rounded cursor-pointer py-2  ">+</span>
                     </div>
-                    <span class="ms-9 py-3 px-4 rounded border-[1px] border-gray-400 text-2xl hover:bg-[#316565] hover:text-white transition-all"><i class="fa-regular fa-heart"></i></span>
                 </div>
                 <div class="mt-5 w-full text-center ">
-                    <button class="px-3 w-full py-3 border-[2px] rounded-lg bg-black border-black hover:bg-[#316565] hover:border-[#316565] transition-all text-white">Add To Cart</button>
+                    <button (click)="addToCart(productDetails.id)" class="px-3 w-full py-3 border-[2px] rounded-lg bg-black border-black hover:bg-[#316565] hover:border-[#316565] transition-all text-white">Add To Cart</button>
                 </div>
             </div>
 

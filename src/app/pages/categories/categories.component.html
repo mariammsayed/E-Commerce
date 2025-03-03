@@ -1,1 +1,13 @@
-<p>categories works!</p>
+<section id="categories" class="py-[50px] md:py-[90px] ">
+    <div class="title mb-12">
+        <p class="mb-6 font-semibold text-[#316565] text-4xl  ">Categories</p>
+    </div>
+    <div class="flex w-full flex-wrap justify-center">
+        @for (cat of categories(); track cat._id) {
+            <div class=" flex md:w-[40%] w-full   m-8 flex-col items-center p-[16px] rounded-md shadow-lg  hover:scale-110 transition-all gap-8">
+                <img class="w-[200px]  object-contain" src="{{cat.image}}" alt="">
+                <h2 class="text-2xl font-medium ms-[8px]">{{cat.name}}</h2>
+            </div>
+        }
+    </div>
+</section>

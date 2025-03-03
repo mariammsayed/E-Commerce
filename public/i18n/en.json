@@ -1,0 +1,43 @@
+{
+    "navbar":{
+       "home":"Home",
+       "products":"Products",
+       "catigories":"Catigories",
+       "brand":"Brand",
+       "logout":"Logout" 
+    },
+    "home":{
+        "ourProducts":"OurProducts",
+        "exploreOurProducts":"Explore Our Products",
+        "addToCart":"Add To Cart",
+        "viewAllProducts":"View All Products",
+        "search":"Search...",
+        "categories":"Categories",
+        "browseByCategory":"Browse By Category",
+        "blog":"Blog",
+        "readOurBlog":"Read Our Blog",
+        "freeAndFastDelivery":"FREE AND FAST DELIVERY",
+        "freeDeliveryForAllOrders":"Free delivery for all orders over $140",
+        "customerService":"24/7 CUSTOMER SERVICE",
+        "friendly24":"Friendly 24/7 customer support",
+        "moneyBackGuarantee":"MONEY BACK GUARANTEE",
+        "weReturnMoney":"We reurn money within 30 days"
+    },
+    
+    "footer":{
+        "subscribe":"Subscribe",
+        "offer":"Get 10% off your first order",
+        "send":"Send",
+        "enterYourEmail":"Enter your email",
+        "support":"Support",
+        "maadi":"Maadi,Cairo,Egypt",
+        "account":"Account",
+        "myAccount":"My Account",
+        "loginRegister":"Login / Register",
+        "cart":"Cart",
+        "checkOut":"Check Out",
+        "shop":"Shop",
+        "downloadApp":"Download App",
+        "save":"Save $3.00 with App New User Only"
+    }
+}

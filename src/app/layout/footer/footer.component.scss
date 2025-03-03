@@ -1,22 +1,65 @@
 @use '../../styles/variables.scss' as *;
 
 footer{
-    #logo{
-        letter-spacing: 1.5px;
-    }
 
-    background-color: $main-color;
-    p{
-        color: white;
+    background-color: $button;
+    color: $text;
 
-    }
+    .container{
+        .footer-col{
+            h5{
+                font-size: 24px;
+                
+            }
+            .subscribe{
+                font-size: 20px;
+            }
+            .offer{
+                font-size: 16px;
+            }
+            .footer-input{
 
-    
-        h3{
-            font-size: 26px;
+                input{
+                    position: relative;
+                    border: 1px solid $text;
+                    outline: 1px solid $text;
+                    background-color: $button;
+                    z-index: 10;
+                    &:focus{
+                        border: 1px solid $text;
+                        outline: 1px solid $text;
+                        
+                    }
+
+                }
+                
+            }
+            .account{
+                cursor: pointer;
+            }
+            .download{
+                cursor: pointer;
+            }
+            .footer-app{
+                opacity: 70%;
+                font-size: 12px;
+            }
+            .footer-icons{
+                i{
+                    font-size: 24px;
+                    cursor: pointer;
+                }
+            }
+
         }
+    }
+    .copy-right{
+        font-size: 16px;
+        color: $primary;
+        opacity: 30%;
+        i{
+            font-size: 20px;
 
-    
-
-
+        }
+    }
 }

@@ -37,6 +37,7 @@ export class RegisterComponent {
         },
         error : (err) => {
           this.errMessage = err.error.message
+          this.isLoading = false
         }
       })
     }

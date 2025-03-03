@@ -1,1 +1,93 @@
-<p>cart works!</p>
+@if (isFull) {
+    <section id="cart" class="md:py-[90px] py-[50px]">
+        <div class="title mb-12">
+            <p class="mb-6 font-semibold text-[#316565] text-4xl">Cart</p>
+        </div>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+        @for (item of cartDetails.products ; track item.product._id) {
+            <div class="table-items  mb-6 px-6 py-2 shadow-md font-normal ">
+                <div class="flex flex-row p-5 items-center" >
+
+                    <div>
+                        <img class="w-[180px] " [src]="item.product.imageCover" alt="">
+                        <p class="my-4 text-2xl ">{{item.product.title.split(' ',2).join('')}}</p>
+                    </div>
+
+                    <div class="ms-10 flex flex-col">
+                        <span >Price :  {{item.price |currency}}</span>
+                        <span class="flex items-center justify-between my-4 border-[1px] rounded-lg border-black py-1 px-2">
+                            
+                            
+                                <i (click)="increment(item.product._id , item.count - 1)" class="fa-solid fa-angle-left cursor-pointer hover:text-[#316565]"></i>
+                                {{item.count}}
+                                <i (click)="decrement(item.product._id , item.count + 1)" class="fa-solid fa-angle-right cursor-pointer hover:text-[#316565] "></i>
+                            
+                        </span>
+                        <span class="my-4"> Subtotal : {{item.price * item.count |currency }} </span>
+                        <button (click)="deleteItem(item.product._id)" class=" my-4 md:mt-0 px-5 py-2 border-[2px] rounded-lg bg-black border-black hover:bg-[#316565] hover:border-[#316565] transition-all text-white">Remove</button>
+                    </div>
+
+                </div>
+            </div>
+        }
+    
+    
+    
+    
+    
+    
+        <div class="w-full text-center mt-3 flex flex-col md:flex-row justify-center ">
+            <button (click)="clearCart()" class=" mt-3 md:mt-0 px-5 py-2 border-[2px] rounded-lg bg-black border-black hover:bg-[#316565] hover:border-[#316565] transition-all text-white">Clear Cart</button>
+        </div>
+
+
+
+        <div id="checkOut" class="flex w-full">
+            
+
+        <div  class="mt-5 border-[2px] border-black rounded-md p-5 inline-block w-full">
+
+            <h4 class="font-medium text-xl mb-6">Cart Total</h4>
+
+            <div class="flex justify-between">
+                <p class="pb-4 mt-4 ">Total : </p>
+                <span class="ms-auto">{{cartDetails.totalCartPrice | currency}} </span>
+            </div>
+
+
+<div class="w-full text-center">
+    <button [routerLink]="['/checkout' , cartDetails._id]" class="  mt-2 px-5 py-2 border-[2px] rounded-lg bg-black border-black hover:bg-[#315656] hover:border-[#315656] transition-all text-white">Procees to checkout</button>
+
+</div>
+
+        </div>
+        </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </section>
+}@else {
+    <section id="cart" class="md:py-[90px] py-[50px] h-[70vh]">
+        <div class="title mb-12 text-center">
+            <p class="mb-6 font-semibold text-[#316565]  relative">Cart</p>
+            <h2 class="font-semibold text-4xl">Your Cart Is Empty</h2>
+        </div>
+    </section>
+}

@@ -1,0 +1,49 @@
+{
+    "navbar":{
+       "home":"الرئيسية",
+       "products":"المنتجات",
+       "catigories":"الفئات",
+       "brand":"العلامات التجارية",
+       "logout":"تسجيل الخروج" 
+    },
+    "home":{
+        "ourProducts":"منتجاتنا",
+        "exploreOurProducts":"استكشف منتجاتنا",
+        "addToCart":"أضف إلى السلة",
+        "viewAllProducts":"عرض جميع المنتجات",
+        "search":"بحث...",
+        "categories":"الفئات",
+        "browseByCategory":"تصفح حسب الفئة",
+        "blog":"المدونة",
+        "readOurBlog":"اقرأ مدونتنا",
+        "freeAndFastDelivery":"توصيل مجاني وسريع",
+        "freeDeliveryForAllOrders":"توصيل مجاني لجميع الطلبات التي تزيد عن 140 دولارًا",
+        "customerService":"خدمة العملاء 24/7",
+        "friendly24":"دعم عملاء ودود على مدار الساعة",
+        "moneyBackGuarantee":"ضمان استعادة الأموال",
+        "weReturnMoney":"نقوم بإرجاع الأموال خلال 30 يومًا"
+    },
+    "products":{
+        "exploreProducts":"استكشف منتجاتنا",
+        "ourProducts":"منتجاتنا",
+        "search":"بحث...",
+        "addToCart":"أضف إلى السلة",
+        "viewAllProducts":"عرض جميع المنتجات"
+    },
+    "footer":{
+        "subscribe":"اشترك",
+        "offer":"احصل على خصم 10% على أول طلب لك",
+        "send":"إرسال",
+        "enterYourEmail":"أدخل بريدك الإلكتروني",
+        "support":"الدعم",
+        "maadi":"المعادي، القاهرة، مصر",
+        "account":"الحساب",
+        "myAccount":"حسابي",
+        "loginRegister":"تسجيل الدخول / التسجيل",
+        "cart":"السلة",
+        "checkOut":"إتمام الشراء",
+        "shop":"المتجر",
+        "downloadApp":"تحميل التطبيق",
+        "save":"وفر 3.00 دولار مع التطبيق للمستخدمين الجدد فقط"
+    }
+}
